@@ -1,11 +1,14 @@
 // 1. import `ChakraProvider` component
 import './App.css'
+import Editor from './Editor'
+import Sidebar from './Sidebar'
 
 function App() {
   // 2. Wrap ChakraProvider at the root of your app
   return (
-    <div>
-      <h1> Hello World!</h1>
+    <div className="app">
+      <Sidebar />
+      <Editor />
     </div>
   )
 }
