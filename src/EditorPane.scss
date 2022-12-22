@@ -1,0 +1,115 @@
+.editor-wrapper {
+  flex-grow: 1;
+  /* border: 1px solid blue; */
+  padding: 10px;
+  background-color: #fefefc;
+  /* background-color: black; */
+}
+
+.editor {
+  border: 1px solid black;
+  padding: 10px 15px;
+  min-height: 50vh;
+  font-family: 'Raleway','Gill Sans',Arial, Helvetica, sans-serif;
+  font-size:14pt;
+  background: #fefefc;
+}
+
+.editor:focus {
+  outline: none;
+  border: 1px dashed black;
+  min-height: 50vh;
+}
+
+.menu-bar {
+  display: flex;
+  padding: 10px 15px;
+  border-bottom: 1px solid black;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  
+}
+
+button { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 12pt;
+  // padding: 0.5rem 1rem;
+  margin: 0.3rem 0.2rem;
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+  border-radius: 0.2rem;
+}
+
+.is-active {
+  background-color: #0D0D0D;
+  color: #fefefc;
+}
+
+/* Basic editor styles */
+
+
+
+ul,
+ol {
+  padding: 0 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+}
+
+
+code {
+  font-family: 'JetBrainsMono', monospace;
+  background-color: #393939;
+  font-size:inherit;
+  color: #FFF;
+  padding: 0.2rem 0.35rem;
+  line-height: 2rem;
+  border-radius: 0.3rem;
+}
+
+pre {
+  background: #0D0D0D;
+  color: #FFF;
+  font-family: 'JetBrainsMono', monospace;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0px;
+
+  code {
+    color: inherit;
+    padding: 0;
+    background: none;
+    font-size: 0.8rem;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+blockquote {
+  padding-left: 1rem;
+  border-left: 2px solid rgba(#0D0D0D, 0.4);
+  font-size:1.1rem;
+  margin: 0.7rem 0;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid rgba(#0D0D0D, 0.1);
+  margin: 2rem 0;
+}

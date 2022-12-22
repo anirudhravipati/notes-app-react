@@ -14,33 +14,30 @@
 }
 
 .sidebar {
-  border: 1px dotted blue;
-  width: 20%;
+  min-width: 20%;
   height: 100vh;
-  min-width: 300px;
   padding: 5px 10px;
-  /* box-shadow: 1px 0px 4px rgba(0,0,0,0.10); */
-  border-right: 1px solid hsl(0, 0%, 30%);;
-  font-family: 'Josefin Slab', monospace, system-ui, sans-serif;
+  border-right: 1px solid rgb(51, 51, 51);
+  font-family: 'Raleway','Gill Sans', monospace, system-ui, sans-serif;
   font-style: normal;
-  background-color: hsl(0, 0%, 95%);
+  background-color: #fefefc
   
 }
 
 .sidebar-title {
   font-size: 32pt;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .title-bar-add-note {
-  font-size: 32pt;
-  font-weight: 700;
+  font-size: 24pt;
+  font-weight: 400;
   background-color: transparent;
-  border: 1px solid hsl(0, 0%, 30%);
-  padding: 5px 14px;
+  border: 1px solid rgb(51, 51, 51);
+  padding: 3px 12px;
 }
 
 .title-bar-add-note:hover{
-  background-color: hsl(50, 100%, 75%);;
-  color: hsl(0, 0%, 30%);
+  background-color: rgb(51, 51, 51);
+  color: #fefefc;
 }

@@ -1,6 +1,6 @@
 // 1. import `ChakraProvider` component
 import './App.css'
-import Editor from './Editor'
+import EditorPane from './EditorPane'
 import Sidebar from './Sidebar'
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="app">
       <Sidebar />
-      <Editor />
+      <EditorPane />
     </div>
   )
 }
