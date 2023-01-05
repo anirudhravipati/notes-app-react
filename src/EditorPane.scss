@@ -46,6 +46,11 @@ button {
   border-radius: 0.2rem;
 }
 
+button:hover {
+  background-color: #474747;
+  color: #fefefc;
+}
+
 .is-active {
   background-color: #0D0D0D;
   color: #fefefc;
