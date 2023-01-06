@@ -175,7 +175,7 @@ const MenuBar = ({ editor }) => {
 }
 
 export default function EditorPane(props) {
-  const [html,setHtml] = React.useState({})
+  const [html,setHtml] = React.useState(props.note? props.note.body : {})
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -188,6 +188,7 @@ export default function EditorPane(props) {
     },
     onUpdate: ({ editor }) => {
       const newContent = editor.getHTML()
+      // console.log(`onUpdate is ${newContent}`)
       setHtml(newContent)
     } ,
   })  
@@ -197,14 +198,12 @@ export default function EditorPane(props) {
   },[html]);
 
   useEffect(()=> {
-    if(props.note != undefined)
+    if(editor && props.note)
     {
       // console.log(`body is ${props.note.body}`)
       editor.commands.setContent(props.note.body)
     }
-      
-
-  },[props.currentId]);
+  },[editor,props.currentId]);
 
   return (
     <div className="editor-wrapper">
