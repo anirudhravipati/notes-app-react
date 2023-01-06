@@ -1,7 +1,6 @@
 
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
-import CharacterCount from '@tiptap/extension-character-count'
 
 import { BsTypeH1,
   BsTypeH2,
@@ -16,14 +15,14 @@ import { BsTypeH1,
   BsTypeItalic,
   BsTypeBold,
   BsTypeStrikethrough } from "react-icons/bs"
-import {ImClearFormatting,
-    ImPageBreak} from "react-icons/im"
+import {
+  ImClearFormatting,
+  ImPageBreak } from "react-icons/im"
 import {FaRemoveFormat} from "react-icons/fa"
 import {BiUndo,BiRedo} from "react-icons/bi"
 
-
 import React, { useEffect } from 'react'
-// import './styles.scss'
+
 import './EditorPane.scss'
 
 const MenuBar = ({ editor }) => {
@@ -176,7 +175,7 @@ const MenuBar = ({ editor }) => {
 }
 
 export default function EditorPane(props) {
-
+  const [html,setHtml] = React.useState({})
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -188,10 +187,15 @@ export default function EditorPane(props) {
       },
     },
     onUpdate: ({ editor }) => {
-      const json = editor.getJSON()
-      props.updateContent(json)
+      const newContent = editor.getHTML()
+      console.log(newContent)
+      setHtml(newContent)
     } ,
   })  
+
+  useEffect(()=> {
+    props.updateContent(html)
+  },[html]);
 
   return (
     <div className="editor-wrapper">

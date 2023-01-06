@@ -18,16 +18,23 @@ function App() {
       }
       setNotes(prevNotes => [newNote, ...prevNotes])
       setCurrentNoteId(newNote.id)
-      console.log(`note ${newNote.id} created setting current id is ${currentNoteId}`)
+      console.log(`note ${newNote.id} created`)
   }
 
   function updateNote(text) {
-      console.log(`calling note update for ${currentNoteId} notes.length: ${notes.length}`)
+      // console.log(`calling note update for ${currentNoteId} notes.length: ${notes.length}`)
       setNotes(oldNotes => oldNotes.map(oldNote => {
           return oldNote.id === currentNoteId
               ? { ...oldNote, body: text }
               : oldNote
       }))
+
+      // console.log("Notes as accesed in updateNote")
+      // for(let i = 0 ; i < notes.length ; i++)
+      // {
+      //     console.log(`id:${notes[i].id} body:${notes[i].body}`)
+      // }
+      // console.log("done")
   }
   
   function findCurrentNote() {
@@ -36,10 +43,17 @@ function App() {
       }) || notes[0]
   }
 
-  useEffect(() => {
-    console.log(`notes length : ${notes.length}`)
-  },[notes]);
 
+
+  useEffect(() => {
+    console.log(`currentNoteId: ${currentNoteId}`)
+  },[currentNoteId]);
+
+  useEffect(() => {
+    console.log(`Showing notes \n notes length : ${notes.length}`)
+    for(let i = 0 ; i < notes.length ; i++)
+      console.log(`id: ${notes[i].id} body: ${notes[i].body}`)
+  },[notes]);
  
 
   return (
