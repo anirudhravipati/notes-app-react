@@ -16,8 +16,8 @@ function App() {
           id: nanoid(),
           body: "<h1>Type your markdown note's title here<h1>"
       }
-      setNotes(prevNotes => [newNote, ...prevNotes])
-      setCurrentNoteId(newNote.id)
+      setNotes(prevNotes => [ ...prevNotes, newNote])
+      // setCurrentNoteId(newNote.id)
       console.log(`note ${newNote.id} created`)
   }
 
@@ -49,7 +49,9 @@ function App() {
     console.log(`currentNoteId: ${currentNoteId}`)
   },[currentNoteId]);
 
-  useEffect(() => {
+  useEffect(() => { 
+    if(notes.length===1) setCurrentNoteId(notes[0].id)
+
     console.log(`Showing notes \n notes length : ${notes.length}`)
     for(let i = 0 ; i < notes.length ; i++)
       console.log(`id: ${notes[i].id} body: ${notes[i].body}`)

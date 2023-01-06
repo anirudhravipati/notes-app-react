@@ -8,9 +8,6 @@ function Sidebar(props) {
     </div>
   ))
 
-  console.log("noteElements")
-  console.log(noteElements);
-
   return (
     <div class="sidebar">
       <div className="title-bar">
