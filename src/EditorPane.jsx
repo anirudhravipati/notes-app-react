@@ -188,7 +188,6 @@ export default function EditorPane(props) {
     },
     onUpdate: ({ editor }) => {
       const newContent = editor.getHTML()
-      console.log(newContent)
       setHtml(newContent)
     } ,
   })  
@@ -196,6 +195,16 @@ export default function EditorPane(props) {
   useEffect(()=> {
     props.updateContent(html)
   },[html]);
+
+  useEffect(()=> {
+    if(props.note != undefined)
+    {
+      // console.log(`body is ${props.note.body}`)
+      editor.commands.setContent(props.note.body)
+    }
+      
+
+  },[props.currentId]);
 
   return (
     <div className="editor-wrapper">
