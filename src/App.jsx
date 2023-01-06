@@ -58,7 +58,7 @@ function App() {
 
   return (
     <div className="app">
-      <Sidebar addNewNote={createNewNote} />
+      <Sidebar notes={notes} currentId={currentNoteId} addNewNote={createNewNote} setCurrentId={setCurrentNoteId}/>
       <EditorPane updateContent={updateNote} />
     </div>
   )
