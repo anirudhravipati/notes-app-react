@@ -20,7 +20,6 @@ function App() {
   }
 
   function updateNote(text) {
-      console.log(`updating with ${text}`)
       setNotes(oldNotes => oldNotes.map(oldNote => {
           return oldNote.id === currentNoteId
               ? { ...oldNote, body: text }
@@ -33,14 +32,12 @@ function App() {
           return note.id === currentNoteId
       }) 
 
-      console.log(`result is ${JSON.stringify(result)}`)
       return result
   }
 
   useEffect(() => { 
     if(notes.length===1) setCurrentNoteId(notes[0].id)
     localStorage.setItem("notes", JSON.stringify(notes))
-    console.log(JSON.stringify(notes))
   },[notes]); 
 
   useEffect(() => {
