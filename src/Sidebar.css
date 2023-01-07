@@ -52,8 +52,9 @@
 
 .note-card {
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
-  height: 8vh;
+  /* height: 8vh; */
   overflow: hidden;
   border: 1px solid rgb(51, 51, 51);
   padding: 1rem 1rem;
@@ -62,4 +63,18 @@
 .selected-note {
   color:#fefefc;
   background-color: rgb(51, 51, 51);
+}
+
+.selected-delete-note {
+  color: #fefefc;
+  border: 1px solid #fefefc;
+}
+
+.selected-delete-note:hover {
+  color: rgb(51, 51, 51);
+  background-color: #fefefc;
+}
+
+.delete-button {
+  margin-top:1rem;
 }

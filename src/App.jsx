@@ -16,6 +16,7 @@ function App() {
           body: "<h1>New Note<h1>"
       }
       setNotes(prevNotes => [ ...prevNotes, newNote])
+      setCurrentNoteId(newNote.id);
       console.log(`note ${newNote.id} created`)
   }
 
@@ -25,6 +26,14 @@ function App() {
               ? { ...oldNote, body: text }
               : oldNote
       }))
+  }
+
+  function deleteNote(event,id) {
+    console.log(`deleting id ${id}`)
+    event.stopPropagation();
+
+    setNotes(oldNotes => oldNotes.filter((note) => note.id !== id ))
+    
   }
   
   function findCurrentNote() {
@@ -46,7 +55,13 @@ function App() {
 
   return (
     <div className="app">
-      <Sidebar notes={notes} currentId={currentNoteId} addNewNote={createNewNote} setCurrentId={setCurrentNoteId}/>
+      <Sidebar
+        notes={notes}
+        currentId={currentNoteId}
+        addNewNote={createNewNote}
+        setCurrentId={setCurrentNoteId}
+        deleteNote={deleteNote}
+        />
       <EditorPane note={findCurrentNote()} currentId={currentNoteId} updateContent={updateNote} />
     </div>
   )
