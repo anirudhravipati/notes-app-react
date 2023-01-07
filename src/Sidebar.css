@@ -1,6 +1,7 @@
 * {
   border : none;
   margin: 0;
+  /* outline: 1px solid blue; */
 }
 
 .title-bar {
@@ -65,6 +66,10 @@
   background-color: rgb(51, 51, 51);
 }
 
+.operation-buttons {
+  display: flex;
+}
+
 .selected-delete-note {
   color: #fefefc;
   border: 1px solid #fefefc;
@@ -73,6 +78,11 @@
 .selected-delete-note:hover {
   color: rgb(51, 51, 51);
   background-color: #fefefc;
+}
+
+.download-button {
+  margin-top: 1rem;
+  margin-right: 0.5rem;
 }
 
 .delete-button {

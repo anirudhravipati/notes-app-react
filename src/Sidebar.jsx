@@ -1,11 +1,13 @@
 import './Sidebar.css'
 import React from 'react'
-import {BsTrashFill} from "react-icons/bs"
+import {BsTrashFill,BsDownload} from "react-icons/bs"
+
+import { saveAs } from 'file-saver';
 
 function Sidebar(props) {
   let parser = new DOMParser();
   var maxLength = 25;
-
+  
   const noteElements = props.notes.map((note) => {
 
     let parsedHtml = parser.parseFromString(note.body, 'text/html');   
@@ -20,12 +22,35 @@ function Sidebar(props) {
       title=`untitled`
     }
 
+    function downloadFile(event,id)
+    {
+      console.log(`downloading note of id ${id}`)
+      event.stopPropagation();
+
+
+
+      const serializer = new XMLSerializer();
+      const domStr = serializer.serializeToString(parsedHtml);
+      console.log(domStr)
+      
+      let blob = new Blob([domStr], {
+        type: 'application/html'
+      });
+
+      saveAs(blob,`${title}.html`)
+    }
+
     return (
     <div onClick={() => props.setCurrentId(note.id)} key={note.id} className={`note-card ${note.id === props.currentId ? `selected-note` : ``}`}>
       <h2>{title}</h2>
-      <button onClick={(event) => props.deleteNote(event,note.id)} className={`delete-button ${note.id === props.currentId ? `selected-delete-note` : ``}`}>
-        <BsTrashFill />
-      </button>
+      <div className={`operation-buttons`}>
+        <button onClick={(event) => downloadFile(event,note.id)} className={`download-button ${note.id === props.currentId ? `selected-delete-note` : ``}`}>
+          <BsDownload />
+        </button>
+        <button onClick={(event) => props.deleteNote(event,note.id)} className={`delete-button ${note.id === props.currentId ? `selected-delete-note` : ``}`}>
+          <BsTrashFill />
+        </button>
+      </div>
     </div>)
   })
 
